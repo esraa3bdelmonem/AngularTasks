@@ -1,5 +1,11 @@
 export class Student {
-    constructor(Id?:number,Name?:string,Age?:Number){  
+    Id:number;
+    Name:string;
+    Age:Number
+    constructor(Id:number,Name:string,Age:Number){  
+        this.Id=Id;
+        this.Name=Name;
+        this.Age=Age;
     }
 }
 

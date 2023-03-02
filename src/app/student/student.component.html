@@ -1,11 +1,31 @@
-<table>
+<td><button  (click)="addFlag=true"  *ngIf="!addFlag" class="btn btn-secondary">Add</button></td>
+<div *ngIf="addFlag">
+    <label>Id</label>
+    <input type="text" [(ngModel)]="std.Id">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="std.Name">
+    <label>Age</label>
+    <input type="text" [(ngModel)]="std.Age">
+    <button type="button" class="btn btn-secondary" (click)="save()">Save</button>
+    <!-- <button type="button" class="btn btn-secondary" (click)="updateRow()">Update</button> -->
+</div>
+<table class="table">
+    <thead>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
     </tr>
-    <tr>
-        <td>{{}}</td>
-        
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of Students">
+        <td>{{item.Id}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.Age}}</td>
+        <td><button type="button" class="btn btn-secondary" (click)="fillInput(item)">Update</button></td>
+        <td><button type="button" class="btn btn-secondary" (click)="deleteINPUT(item.Id)">Delete</button></td>
     </tr>
+</tbody>
 </table>
